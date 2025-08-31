@@ -23,7 +23,26 @@ export interface BookmakerOdds {
     under?: { price?: number | null; point?: number | null };
   };
 }
+export interface H2HOdds {
+  home: number | null;
+  away: number | null;
+}
 
+export interface SpreadOdds {
+  home_price: number | null;
+  home_point: number | null;
+  away_price: number | null;
+  away_point: number | null;
+}
+
+export interface TotalOdds {
+  over_price: number | null;
+  over_point: number | null;
+  under_price: number | null;
+  under_point: number | null;
+}
+
+export type OddsValue = H2HOdds | SpreadOdds | TotalOdds;
 export interface Event {
   event_id: string;
   sport_key: string;
@@ -41,7 +60,7 @@ export interface EventDetail {
   away_team?: string;
   commence_time: string;
   current_odds: BookmakerOdds[];
-  odds_comparison: Record<string, any>;
+  odds_comparison: Record<string, OddsValue>;
 }
 
 export type MarketType = "h2h" | "spreads" | "totals";

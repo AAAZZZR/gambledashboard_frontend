@@ -44,7 +44,7 @@ export default function EventDetailPage() {
     if (typeof event_id !== "string") return;
     fetchEventHistory(event_id, market, hours, bookmakerKey)
       .then(setHistory)
-      .catch((e) => setHistory(null));
+      .catch((_e) => setHistory(null));
   }, [event_id, market, hours, bookmakerKey]);
 
   const bookmakerOptions = useMemo(
